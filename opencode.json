@@ -1,0 +1,12 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "theme": "system",
+    "instructions": [],
+    "mcp": {
+        "mcp-gateway": {
+            "type": "local",
+            "command": ["docker", "mcp", "gateway", "run"],
+            "enabled": true
+        }
+    }
+}

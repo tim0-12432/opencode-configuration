@@ -1,0 +1,9 @@
+{
+  "name": "tool",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "dependencies": {
+    "@opencode-ai/plugin": "^0.13.5"
+  }
+}
