@@ -1,6 +1,12 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "theme": "system",
+    "share": "disabled",
+    "disabled_providers": [
+        "openai",
+        "zen",
+        "opencode"
+    ],
     "instructions": [],
     "mcp": {
         "mcp-gateway": {

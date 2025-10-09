@@ -1,5 +1,11 @@
 # OpenCode configurations for AI Development
 
+## Get started
+
+1. Install OpenCode [[instructions](https://opencode.ai/docs/#install)]
+2. Clone or download this repository into `C:\Users\<user>\.config\opencode` (global) or into your project folder
+3. Adjust the configuration as you like
+
 ## Roles
 
 The different agents and subagents should depict like an real software development team.
