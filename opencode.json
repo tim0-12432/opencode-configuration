@@ -7,6 +7,11 @@
             "type": "local",
             "command": ["docker", "mcp", "gateway", "run"],
             "enabled": true
+        },
+        "playwright": {
+            "type": "local",
+            "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
+            "enabled": true
         }
     }
 }

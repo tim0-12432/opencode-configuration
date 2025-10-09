@@ -15,6 +15,7 @@ tools:
   todowrite: true
   todoread: true
   webfetch: true
+  mymcp_*: true
 ---
 
 You are in code review mode. Focus on:

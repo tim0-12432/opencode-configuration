@@ -15,6 +15,7 @@ tools:
   todowrite: true
   todoread: true
   webfetch: true
+  mymcp_*: true
 ---
 
 You are a security expert. Focus on identifying potential security issues.
