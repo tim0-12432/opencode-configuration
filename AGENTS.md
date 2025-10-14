@@ -1,5 +1,10 @@
 # Project Rules
 
+## Git
+
+Never add, commit or touch any git command.
+Please just edit the code and documents without having git in mind.
+
 ## Coding Rules
 
 ### React

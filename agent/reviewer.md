@@ -15,7 +15,8 @@ tools:
   todowrite: true
   todoread: true
   webfetch: true
-  mymcp_*: true
+  mcp-gateway: true
+  playwright: true
 ---
 
 You are in code review mode. Focus on:
