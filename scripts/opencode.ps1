@@ -8,34 +8,27 @@
     - STDIN prompt input when no --prompt flag is provided
     - Default model (gpt-5-mini) when --model is not specified
     - Passthrough of unknown flags to opencode
-
-.PARAMETER model
-    The model name or unique partial match. Default: github-copilot/gpt-5-mini
-
-.PARAMETER prompt
-    The prompt text. If not provided, reads from STDIN.
+    - Support for --help/-h flag
 
 .EXAMPLE
-    opencode.ps1 --model github-copilot/gpt-4 --prompt "Hello world"
+    ./opencode.ps1 --prompt "Hello World"
     
 .EXAMPLE
-    opencode.ps1 --model=claude/sonnet-4.5 --prompt "Analyze this code"
+    ./opencode.ps1 -p "Quick question" --model claude/sonnet-4.5
     
 .EXAMPLE
-    echo "What is the meaning of life?" | opencode.ps1
+    echo "Piped input" | ./opencode.ps1
     
 .EXAMPLE
-    opencode.ps1 -p "Quick question" --model openai/gpt-5
+    ./opencode.ps1 --model=openai/gpt-5 --prompt "Analyze this code"
     
 .EXAMPLE
-    Get-Content input.txt | opencode.ps1 --model claude/sonnet-4.5 --flag1 --flag2
+    Get-Content file.txt | ./opencode.ps1 --model claude/sonnet-4.5
 #>
 
-[CmdletBinding()]
-param(
-    [Parameter(ValueFromRemainingArguments=$true)]
-    [string[]]$Arguments
-)
+# SOLUTION: Use $args automatic variable for arguments, handle pipeline separately
+# ValueFromRemainingArguments doesn't work reliably when combined with ValueFromPipeline
+# because PowerShell tries to bind arguments as pipeline values
 
 # Exit codes
 $ExitCode = @{
@@ -122,30 +115,58 @@ function Resolve-ModelName {
     return $partialMatches[0]
 }
 
-# Check if opencode is available
-if (-not (Get-Command opencode -ErrorAction SilentlyContinue)) {
-    Write-ErrorMessage "opencode command not found. Please ensure opencode is installed and in PATH."
-    exit $ExitCode.OpencodeNotFound
+# Main script execution
+
+# Collect piped input if present (must be done before accessing $args)
+$pipeBuffer = [System.Collections.Generic.List[string]]::new()
+
+# Always try to collect pipeline input - if there's no input, the loop won't execute
+# This approach works correctly whether invoked via -File or -Command
+$input | ForEach-Object {
+    if ($null -ne $_ -and $_ -ne '') {
+        $pipeBuffer.Add($_.ToString())
+    }
 }
 
-# Parse arguments
+# Now get the arguments - use $args which works correctly with -File invocation
+$scriptArgs = $args
+
+# Check for help
+if ($scriptArgs -contains '--help' -or $scriptArgs -contains '-h') {
+    Write-Host @"
+Usage: ./opencode.ps1 [OPTIONS]
+
+Options:
+  --prompt, -p TEXT    Prompt text (required if not piping)
+  --model MODEL        Model name or partial match (default: gpt-5-mini)
+  --help, -h           Show this help message
+
+Examples:
+  ./opencode.ps1 --prompt "Hello World"
+  ./opencode.ps1 -p "Quick question" --model openai/gpt-5
+  echo "Piped input" | ./opencode.ps1
+  Get-Content file.txt | ./opencode.ps1 --model claude/sonnet-4.5
+  ./opencode.ps1 --model=xai/grok-3 --prompt="Analyze code" --temperature=0.7
+"@
+    exit 0
+}
+
+# Parse $scriptArgs for --prompt, --model, and passthrough args
 $modelValue = $null
 $promptValue = $null
 $passthroughArgs = @()
 $i = 0
 
-while ($i -lt $Arguments.Count) {
-    $arg = $Arguments[$i]
+while ($i -lt $scriptArgs.Count) {
+    $arg = $scriptArgs[$i]
     
     if ($arg -match '^--model=(.+)$') {
-        # --model=value format (take last occurrence)
         $modelValue = $Matches[1]
         $i++
     }
     elseif ($arg -eq '--model') {
-        # --model value format (take last occurrence)
-        if ($i + 1 -lt $Arguments.Count) {
-            $modelValue = $Arguments[$i + 1]
+        if ($i + 1 -lt $scriptArgs.Count) {
+            $modelValue = $scriptArgs[$i + 1]
             $i += 2
         }
         else {
@@ -154,14 +175,12 @@ while ($i -lt $Arguments.Count) {
         }
     }
     elseif ($arg -match '^--prompt=(.*)$') {
-        # --prompt=value format (takes precedence)
         $promptValue = $Matches[1]
         $i++
     }
     elseif ($arg -eq '--prompt' -or $arg -eq '-p') {
-        # --prompt value or -p value format (takes precedence)
-        if ($i + 1 -lt $Arguments.Count) {
-            $promptValue = $Arguments[$i + 1]
+        if ($i + 1 -lt $scriptArgs.Count) {
+            $promptValue = $scriptArgs[$i + 1]
             $i += 2
         }
         else {
@@ -176,41 +195,36 @@ while ($i -lt $Arguments.Count) {
     }
 }
 
-# Set default model if not provided
+# Set default model
 if ($null -eq $modelValue -or $modelValue -eq '') {
     $modelValue = 'github-copilot/gpt-5-mini'
+}
+
+# Check if opencode is available
+if (-not (Get-Command opencode -ErrorAction SilentlyContinue)) {
+    Write-ErrorMessage "opencode command not found. Please ensure opencode is installed and in PATH."
+    exit $ExitCode.OpencodeNotFound
 }
 
 # Get and validate model
 $availableModels = Get-AvailableModels
 $resolvedModel = Resolve-ModelName -InputModel $modelValue -AvailableModels $availableModels
 
-# Get prompt: from flag or STDIN
+# Acquire prompt: --prompt flag takes precedence over pipeline
 if ($null -eq $promptValue) {
-    # Read from STDIN
-    if ([Console]::IsInputRedirected) {
-        try {
-            $stdinLines = @()
-            $reader = [Console]::In
-            while ($null -ne ($line = $reader.ReadLine())) {
-                $stdinLines += $line
-            }
-            $promptValue = $stdinLines -join "`n"
-            
-            if ([string]::IsNullOrWhiteSpace($promptValue)) {
-                Write-ErrorMessage "No prompt provided via --prompt/-p and STDIN is empty"
-                exit $ExitCode.PromptAcquisitionError
-            }
-        }
-        catch {
-            Write-ErrorMessage "Failed to read from STDIN: $($_.Exception.Message)"
-            exit $ExitCode.PromptAcquisitionError
-        }
+    if ($pipeBuffer.Count -gt 0) {
+        $promptValue = $pipeBuffer -join "`n"
     }
     else {
         Write-ErrorMessage "No prompt provided. Use --prompt/-p or pipe input via STDIN."
         exit $ExitCode.UsageError
     }
+}
+
+# Validate prompt is not empty
+if ([string]::IsNullOrWhiteSpace($promptValue)) {
+    Write-ErrorMessage "Prompt cannot be empty."
+    exit $ExitCode.PromptAcquisitionError
 }
 
 # Build opencode command
@@ -222,7 +236,6 @@ try {
     $exitResult = $LASTEXITCODE
     
     if ($exitResult -ne 0) {
-        # Propagate the underlying opencode exit code when possible
         exit $exitResult
     }
     
