@@ -228,11 +228,11 @@ if ([string]::IsNullOrWhiteSpace($promptValue)) {
 }
 
 # Build opencode command
-$opencodeArgs = @('run', $promptValue, '--model', $resolvedModel) + $passthroughArgs
+$opencodeArgs = @('run', '--model', $resolvedModel) + $passthroughArgs
 
 # Execute opencode and stream output
 try {
-    & opencode @opencodeArgs
+    echo "$promptValue" | & opencode @opencodeArgs
     $exitResult = $LASTEXITCODE
     
     if ($exitResult -ne 0) {

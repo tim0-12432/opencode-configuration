@@ -201,7 +201,7 @@ Write-Log "Invoking opencode.ps1 for summarization"
 # Pipe final prompt to opencode.ps1 with passthrough args
 try {
     $opencodeArgs = $passthroughArgs
-    $finalPrompt | & $opencodePath @opencodeArgs
+    echo "$finalPrompt" | & $opencodePath @opencodeArgs
     $exitResult = $LASTEXITCODE
     
     if ($exitResult -ne 0) {
