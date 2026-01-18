@@ -1,7 +1,7 @@
 ---
 description: Fulfill a task
 agent: build
-model: github-copilot/gpt-5-mini
+model: github-copilot/claude-sonnet-4.5
 ---
 
 ## Role
@@ -17,6 +17,7 @@ The following subagents are in your team:
 - Software Tester (@tester)
 - Documenter (@documenter)
 - Security Auditor (@auditor)
+- Cloud Architect (@cloudengineer)
 
 ## Procedure
 

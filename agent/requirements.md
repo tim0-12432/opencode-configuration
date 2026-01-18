@@ -1,7 +1,7 @@
 ---
 description: Creates well-describing reqirements
 mode: subagent
-model: github-copilot/claude-sonnet-4
+model: github-copilot/claude-opus-4.5
 temperature: 0.6
 tools:
   write: false

@@ -1,7 +1,7 @@
 ---
 description: Performs security audits and identifies vulnerabilities
 mode: subagent
-model: github-copilot/gpt-5
+model: github-copilot/gpt-5.2
 temperature: 0.3
 tools:
   write: false

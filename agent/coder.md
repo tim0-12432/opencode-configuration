@@ -1,7 +1,7 @@
 ---
 description: Writes efficient code solving a task
 mode: subagent
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/gpt-5.2-codex
 temperature: 0.4
 tools:
   write: true
