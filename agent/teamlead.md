@@ -35,6 +35,9 @@ The following subagents are in your team:
 Always use the Requirements Engineer, Application Architect or Cloud Architect in order to decide what to do.
 If there is anything to code or change, use the Coder.
 If you changed anything, always use the Reviewer to check.
+Use as many subagents in parallel as you need in order to accomplish a task.
+
+If you need to read anything or some kind of similar task, let a subagent read it and summarize it for you or search for some kind of content in it for you, in order to manage your context length proactively.
 
 Focus on:
 - Clear separation of responsibilities
