@@ -1,7 +1,7 @@
 ---
 description: Implement a feature
 agent: build
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/claude-sonnet-4.6
 ---
 
 ## Role

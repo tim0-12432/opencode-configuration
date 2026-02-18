@@ -1,7 +1,7 @@
 ---
 description: Fulfill a task
 agent: build
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/claude-sonnet-4.6
 ---
 
 ## Role
