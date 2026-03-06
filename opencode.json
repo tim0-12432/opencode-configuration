@@ -19,5 +19,10 @@
             "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
             "enabled": true
         }
+    },
+    "agent": {
+        "explore": {
+            "model": "github-copilot/claude-haiku-4.5"
+        }
     }
 }
