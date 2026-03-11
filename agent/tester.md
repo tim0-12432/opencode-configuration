@@ -1,7 +1,8 @@
 ---
 description: Performs and adjusts tests
 mode: subagent
-model: github-copilot/gpt-5.1-codex-mini
+model: github-copilot/gpt-5.4
+variant: medium
 temperature: 0.3
 tools:
   write: true

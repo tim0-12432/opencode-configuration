@@ -1,7 +1,8 @@
 ---
 description: Writes and maintains project documentation
 mode: subagent
-model: github-copilot/gpt-5.2-codex
+model: github-copilot/gpt-5.3-codex
+variant: medium
 temperature: 0.1
 tools:
   write: true

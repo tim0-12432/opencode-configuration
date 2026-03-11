@@ -1,7 +1,7 @@
 ---
 description: Creates well-describing reqirements
 mode: subagent
-model: github-copilot/claude-opus-4.6
+model: github-copilot/gemini-3.1-pro-preview
 temperature: 0.6
 tools:
   write: false

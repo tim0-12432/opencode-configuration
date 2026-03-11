@@ -13,14 +13,14 @@ I'm using a GitHub Copilot subscription to get access to all the different model
 But of course the provider and used models can be changed in the opencode configuration.
 
 - Main agent (@teamlead): mostly using Claude Sonnet 4.6; works as the team lead and instructor of the other subagents
-- Requirements engineer (@requirements): Claude Opus 4.6
+- Requirements engineer (@requirements): Gemini 3.1 Pro
 - Application architect (@architect): Claude Opus 4.6
 - Cloud Architect (@cloudengineer): Claude Opus 4.6
-- Software engineer (@coder): GPT 5.2 Codex
-- Implementation Reviewer (@reviewer): Gemini 2.5 Pro
-- Software Tester (@tester): GPT 5.1 Codex Mini
-- Documenter (@documenter): GPT 5.2 Codex
-- Security Auditor (@auditor): GPT 5.2
+- Software engineer (@coder): GPT 5.3 Codex
+- Implementation Reviewer (@reviewer): Gemini 3.1 Pro
+- Software Tester (@tester): GPT 5.4
+- Documenter (@documenter): GPT 5.3 Codex
+- Security Auditor (@auditor): GPT 5.4
 
 ## AI Role Workflows
 

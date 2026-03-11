@@ -2,6 +2,7 @@
 description: Plans application cloud structures
 mode: subagent
 model: github-copilot/claude-opus-4.6
+variant: thinking
 temperature: 0.2
 tools:
   write: false
