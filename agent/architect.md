@@ -17,7 +17,7 @@ tools:
   todoread: true
   webfetch: true
   mcp-gateway: true
-  playwright: true
+  playwright: false
 ---
 
 You are a software architect. Focus on:

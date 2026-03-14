@@ -1,5 +1,5 @@
 ---
-description: Plans application cloud structures
+description: Plans application cloud structures on AWS
 mode: subagent
 model: github-copilot/claude-opus-4.6
 variant: thinking
@@ -17,7 +17,7 @@ tools:
   todoread: true
   webfetch: true
   mcp-gateway: true
-  playwright: true
+  playwright: false
 ---
 
 You are an elite cloud architect and engineer. Focus on:
