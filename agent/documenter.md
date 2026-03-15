@@ -1,8 +1,7 @@
 ---
-description: Writes and maintains project documentation
+description: Writes and maintains project documentation or can also just write something small into a file
 mode: subagent
-model: github-copilot/gpt-5.3-codex
-variant: medium
+model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
 temperature: 0.1
 tools:
   write: true

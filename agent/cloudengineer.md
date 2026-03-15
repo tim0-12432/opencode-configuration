@@ -1,8 +1,7 @@
 ---
 description: Plans application cloud structures on AWS
 mode: subagent
-model: github-copilot/claude-opus-4.6
-variant: thinking
+model: custom-openrouter/openrouter/hunter-alpha
 temperature: 0.2
 tools:
   write: false

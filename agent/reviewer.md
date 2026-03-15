@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: github-copilot/gemini-3.1-pro-preview
+model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
 temperature: 0.1
 tools:
   write: false

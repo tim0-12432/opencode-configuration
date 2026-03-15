@@ -1,8 +1,7 @@
 ---
 description: Writes efficient code solving a task
 mode: subagent
-model: github-copilot/gpt-5.3-codex
-variant: high
+model: custom-openrouter/arcee-ai/trinity-large-preview:free
 temperature: 0.4
 tools:
   write: true

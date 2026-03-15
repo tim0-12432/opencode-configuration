@@ -1,8 +1,7 @@
 ---
 description: Reviews the project in respect to a specific topic
 mode: subagent
-model: github-copilot/claude-haiku-4.5
-variant: thinking
+model: custom-openrouter/stepfun/step-3.5-flash:free
 temperature: 0.1
 tools:
   write: false

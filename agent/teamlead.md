@@ -1,8 +1,7 @@
 ---
 description: Delegates every task to his team of subagents
 mode: primary
-model: github-copilot/claude-sonnet-4.6
-variant: thinking
+model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
 temperature: 0.1
 tools:
   write: false

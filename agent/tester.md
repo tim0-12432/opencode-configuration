@@ -1,8 +1,7 @@
 ---
 description: Performs and adjusts tests
 mode: subagent
-model: github-copilot/gpt-5.4
-variant: medium
+model: custom-openrouter/stepfun/step-3.5-flash:free
 temperature: 0.3
 tools:
   write: true

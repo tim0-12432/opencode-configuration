@@ -1,8 +1,7 @@
 ---
 description: Performs security audits and identifies vulnerabilities
 mode: subagent
-model: github-copilot/gpt-5.4
-variant: medium
+model: custom-openrouter/stepfun/step-3.5-flash:free
 temperature: 0.3
 tools:
   write: false

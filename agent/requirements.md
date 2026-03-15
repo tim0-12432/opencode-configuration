@@ -1,7 +1,7 @@
 ---
 description: Creates well-describing reqirements
 mode: subagent
-model: github-copilot/gemini-3.1-pro-preview
+model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
 temperature: 0.6
 tools:
   write: false
