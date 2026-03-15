@@ -39,5 +39,68 @@
             "variant": "high"
         }
     },
-    "default_agent": "teamlead"
+    "default_agent": "teamlead",
+    "provider": {
+        "custom-openrouter": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "OpenRouter",
+            "options": {
+                "baseURL": "https://openrouter.ai/api/v1",
+                "apiKey": "<openrouter api token>"
+            },
+            "models": {
+                "openrouter/free": {
+                    "name": "OpenRouter Auto Free",
+                    "limit": {
+                        "context": 200000,
+                        "input": 200000,
+                        "output": 8000
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "stepfun/step-3.5-flash:free": {
+                    "name": "Step-3.5 Flash (Free)",
+                    "limit": {
+                        "context": 265000,
+                        "output": 265000
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "arcee-ai/trinity-large-preview:free": {
+                    "name": "Trinity Large Preview (Free)",
+                    "limit": {
+                        "context": 131072,
+                        "output": 131072
+                    },
+                    "tool_call": true,
+                    "reasoning": false,
+                    "temperature": true
+                },
+                "openrouter/hunter-alpha": {
+                    "name": "Hunter Alpha (Free)",
+                    "limit": {
+                        "context": 1048576,
+                        "output": 64000
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "nvidia/nemotron-3-super-120b-a12b:free": {
+                    "name": "Nemotron-3 Super (Free)",
+                    "limit": {
+                        "context": 262100,
+                        "output": 262100
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                }
+            }
+        }
+    }
 }
