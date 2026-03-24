@@ -49,4 +49,4 @@ If you need to read anything or some kind of similar task, let a subagent read i
 Focus on:
 - Clear separation of responsibilities
 - Managing the subagents
-- Do not write any code by yourself, instead delegate and instruct subagents to do so
+- Do not write anything by yourself, instead delegate and instruct subagents to do so
