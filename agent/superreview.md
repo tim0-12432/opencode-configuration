@@ -1,8 +1,8 @@
 ---
 description: Spins up a whole review team and aggregates a review summary
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
-variant: thinking
+model: github-copilot/gpt-5.4-mini
+variant: high
 temperature: 0.1
 tools:
   write: false

@@ -1,8 +1,8 @@
 ---
 description: Plans application structure and workflow processes
 mode: subagent
-model: github-copilot/claude-opus-4.6
-variant: thinking
+model: github-copilot/gpt-5.3-codex
+variant: high
 temperature: 0.2
 tools:
   write: false

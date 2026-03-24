@@ -1,8 +1,8 @@
 ---
 description: Delegates every task to his team of subagents
 mode: primary
-model: github-copilot/claude-sonnet-4.6
-variant: thinking
+model: github-copilot/gpt-5.4-mini
+variant: high
 temperature: 0.1
 tools:
   write: false
