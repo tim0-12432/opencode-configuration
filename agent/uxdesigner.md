@@ -2,6 +2,7 @@
 description: Creates good looking and sophisticated user journeys through UI ideas
 mode: subagent
 model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
+variant: high
 temperature: 0.6
 tools:
   write: false

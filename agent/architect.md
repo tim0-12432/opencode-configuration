@@ -1,7 +1,7 @@
 ---
 description: Plans application structure and workflow processes
 mode: subagent
-model: custom-openrouter/openrouter/hunter-alpha
+model: custom-openrouter/z-ai/glm-4.5-air:free
 temperature: 0.2
 tools:
   write: false

@@ -1,7 +1,8 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
+model: custom-openrouter/stepfun/step-3.5-flash:free
+variant: high
 temperature: 0.1
 tools:
   write: false

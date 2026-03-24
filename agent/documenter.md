@@ -2,6 +2,7 @@
 description: Writes and maintains project documentation or can also just write something small into a file
 mode: subagent
 model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
+variant: high
 temperature: 0.1
 tools:
   write: true

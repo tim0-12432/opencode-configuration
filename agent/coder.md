@@ -1,7 +1,8 @@
 ---
 description: Writes efficient code solving a task
 mode: subagent
-model: custom-openrouter/arcee-ai/trinity-large-preview:free
+model: custom-openrouter/stepfun/step-3.5-flash:free
+variant: high
 temperature: 0.4
 tools:
   write: true

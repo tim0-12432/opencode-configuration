@@ -80,21 +80,61 @@
                     "reasoning": false,
                     "temperature": true
                 },
-                "openrouter/hunter-alpha": {
-                    "name": "Hunter Alpha (Free)",
-                    "limit": {
-                        "context": 1048576,
-                        "output": 64000
-                    },
-                    "tool_call": true,
-                    "reasoning": true,
-                    "temperature": true
-                },
+                // "openrouter/hunter-alpha": {
+                //     "name": "Hunter Alpha (Free)",
+                //     "limit": {
+                //         "context": 1048576,
+                //         "output": 64000
+                //     },
+                //     "tool_call": true,
+                //     "reasoning": true,
+                //     "temperature": true
+                // },
                 "nvidia/nemotron-3-super-120b-a12b:free": {
                     "name": "Nemotron-3 Super (Free)",
                     "limit": {
                         "context": 262100,
                         "output": 262100
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "z-ai/glm-4.5-air:free": {
+                    "name": "GLM-4.5 Air (Free)",
+                    "limit": {
+                        "context": 128000,
+                        "output": 96000
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "qwen/qwen3-coder:free": {
+                    "name": "Qwen3 Coder (Free)",
+                    "limit": {
+                        "context": 262144,
+                        "output": 66536
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "openai/gpt-oss-120b:free": {
+                    "name": "GPT OSS 120B (Free)",
+                    "limit": {
+                        "context": 131072,
+                        "output": 32768
+                    },
+                    "tool_call": true,
+                    "reasoning": true,
+                    "temperature": true
+                },
+                "minimax/minimax-m2.5:free": {
+                    "name": "Minimax M2.5 (Free)",
+                    "limit": {
+                        "context": 196608,
+                        "output": 196608
                     },
                     "tool_call": true,
                     "reasoning": true,

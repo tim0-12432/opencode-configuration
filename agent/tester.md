@@ -2,6 +2,7 @@
 description: Performs and adjusts tests
 mode: subagent
 model: custom-openrouter/stepfun/step-3.5-flash:free
+variant: high
 temperature: 0.3
 tools:
   write: true

@@ -1,7 +1,10 @@
 ---
 description: Delegates every task to his team of subagents
 mode: primary
-model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
+model: custom-openrouter/minimax/minimax-m2.5:free
+# model: custom-openrouter/openrouter/hunter-alpha
+# model: custom-openrouter/nvidia/nemotron-3-super-120b-a12b:free
+variant: high
 temperature: 0.1
 tools:
   write: false
@@ -48,4 +51,4 @@ If you need to read anything or some kind of similar task, let a subagent read i
 Focus on:
 - Clear separation of responsibilities
 - Managing the subagents
-- Do not write any code by yourself, instead delegate and instruct subagents to do so
+- Do not write anything by yourself, instead delegate and instruct subagents to do so
