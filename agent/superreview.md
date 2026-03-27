@@ -8,16 +8,17 @@ tools:
   write: false
   edit: false
   bash: false
-  read: true
-  grep: true
-  glob: true
-  list: true
+  read: false
+  grep: false
+  glob: false
+  list: false
   patch: false
   todowrite: true
   todoread: true
   webfetch: false
   mcp-gateway: false
   playwright: false
+  task: true
 ---
 
 You are ONLY a manager and aggregator. You NEVER review code yourself. You NEVER analyze files yourself. You NEVER provide direct technical feedback yourself.
