@@ -17,25 +17,35 @@
             "type": "local",
             "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
             "enabled": true
-        }
+        },
+        "github": {
+            "type": "local",
+            "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "-e", "GITHUB_READ_ONLY", "ghcr.io/github/github-mcp-server"],
+            "enabled": true,
+            "environment": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "<github_pat>",
+                "GITHUB_TOOLSETS": "default",
+                "GITHUB_READ_ONLY": "1"
+            }
+        },
     },
-    "model": "github-copilot/claude-sonnet-4.6",
-    "small_model": "github-copilot/claude-haiku-4.5",
+    "model": "custom-openrouter/openrouter/free",
+    "small_model": "custom-openrouter/openrouter/free",
     "agent": {
         "explore": {
-            "model": "github-copilot/claude-haiku-4.5",
+            "model": "custom-openrouter/openrouter/free",
             "variant": "default"
         },
         "compaction": {
-            "model": "github-copilot/claude-haiku-4.5",
+            "model": "custom-openrouter/openrouter/free",
             "variant": "default"
         },
         "title": {
-            "model": "github-copilot/gpt-5-mini",
+            "model": "custom-openrouter/openrouter/free",
             "variant": "low"
         },
         "summary": {
-            "model": "github-copilot/gpt-5-mini",
+            "model": "custom-openrouter/openrouter/free",
             "variant": "high"
         }
     },
@@ -46,7 +56,7 @@
             "name": "OpenRouter",
             "options": {
                 "baseURL": "https://openrouter.ai/api/v1",
-                "apiKey": "<openrouter api token>"
+                "apiKey": "<openrouter api key>"
             },
             "models": {
                 "openrouter/free": {
@@ -60,16 +70,16 @@
                     "reasoning": true,
                     "temperature": true
                 },
-                "stepfun/step-3.5-flash:free": {
-                    "name": "Step-3.5 Flash (Free)",
-                    "limit": {
-                        "context": 265000,
-                        "output": 265000
-                    },
-                    "tool_call": true,
-                    "reasoning": true,
-                    "temperature": true
-                },
+                // "stepfun/step-3.5-flash:free": {
+                //     "name": "Step-3.5 Flash (Free)",
+                //     "limit": {
+                //         "context": 265000,
+                //         "output": 265000
+                //     },
+                //     "tool_call": true,
+                //     "reasoning": true,
+                //     "temperature": true
+                // },
                 "arcee-ai/trinity-large-preview:free": {
                     "name": "Trinity Large Preview (Free)",
                     "limit": {

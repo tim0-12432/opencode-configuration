@@ -1,7 +1,8 @@
 ---
 description: Spins up a whole review team and aggregates a review summary
 mode: subagent
-model: custom-openrouter/stepfun/step-3.5-flash:free
+# model: custom-openrouter/stepfun/step-3.5-flash:free
+model: custom-openrouter/openrouter/free
 variant: high
 temperature: 0.1
 tools:
