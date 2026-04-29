@@ -1,7 +1,7 @@
 ---
 description: Writes efficient code solving a task
 mode: subagent
-model: github-copilot/gpt-5.3-codex
+model: github-copilot/gemini-3.1-pro-preview
 variant: high
 temperature: 0.4
 tools:

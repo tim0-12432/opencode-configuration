@@ -17,7 +17,17 @@
             "type": "local",
             "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
             "enabled": true
-        }
+        },
+        "github": {
+            "type": "local",
+            "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "-e", "GITHUB_READ_ONLY", "ghcr.io/github/github-mcp-server"],
+            "enabled": true,
+            "environment": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "<github pat>",
+                "GITHUB_TOOLSETS": "default",
+                "GITHUB_READ_ONLY": "1"
+            }
+        },
     },
     "model": "github-copilot/claude-sonnet-4.6",
     "small_model": "github-copilot/claude-haiku-4.5",

@@ -1,7 +1,7 @@
 ---
 description: Performs security audits and identifies vulnerabilities
 mode: subagent
-model: github-copilot/gpt-5.3-codex
+model: github-copilot/gemini-3.1-pro-preview
 variant: high
 temperature: 0.3
 tools:
