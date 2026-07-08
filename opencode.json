@@ -7,21 +7,26 @@
         "opencode"
     ],
     "plugin": [
+        // Plugin adding a compress tool for the agent to call
         //"@tarquinen/opencode-dcp@3.1.14",
+        // Plugin instructing the agent to talk like a caveman
         //"caveman-opencode-plugin@0.1.5"
     ],
     "instructions": [],
     "mcp": {
+        // MCP Gateway is provided by docker desktop, you can add additional MCP servers there
         "mcp-gateway": {
             "type": "local",
             "command": ["docker", "mcp", "gateway", "run"],
             "enabled": true
         },
+        // Playwright enables the agent to run a browser window
         "playwright": {
             "type": "local",
             "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
             "enabled": true
         },
+        // Readonly github server for easy access to repositories (for writing the agent can use gh cli)
         "github": {
             "type": "local",
             "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "-e", "GITHUB_READ_ONLY", "ghcr.io/github/github-mcp-server"],
@@ -36,18 +41,22 @@
     "model": "github-copilot/claude-sonnet-5",
     "small_model": "github-copilot/gpt-5.4-mini",
     "agent": {
+        // Explore agent is used to read folders and files, and generate summaries
         "explore": {
             "model": "github-copilot/claude-haiku-4.5",
             "variant": "default"
         },
+        // This agent is used to compress a session if the context gets too filled
         "compaction": {
             "model": "github-copilot/gpt-5.4-mini",
             "variant": "medium"
         },
+        // Generates a title for the opencode session
         "title": {
             "model": "github-copilot/gpt-5-mini",
             "variant": "low"
         },
+        // Generates a summary for the opencode session
         "summary": {
             "model": "github-copilot/gpt-5-mini",
             "variant": "high"
