@@ -1,7 +1,8 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: github-copilot/gemini-3.1-pro-preview
+model: github-copilot/gpt-5.5
+variant: high
 temperature: 0.1
 tools:
   write: false

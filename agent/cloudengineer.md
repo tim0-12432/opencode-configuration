@@ -1,8 +1,8 @@
 ---
 description: Plans application cloud structures on AWS
 mode: subagent
-model: github-copilot/claude-opus-4.6
-variant: thinking
+model: github-copilot/claude-opus-4.7
+variant: high
 temperature: 0.2
 tools:
   write: false

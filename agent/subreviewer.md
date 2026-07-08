@@ -2,7 +2,7 @@
 description: Reviews the project in respect to a specific topic
 mode: subagent
 model: github-copilot/claude-haiku-4.5
-variant: thinking
+variant: high
 temperature: 0.1
 tools:
   write: false

@@ -1,7 +1,8 @@
 ---
 description: Creates good looking and sophisticated user journeys through UI ideas
 mode: subagent
-model: github-copilot/gemini-3.1-pro-preview
+model: github-copilot/claude-opus-4.7
+variant: high
 temperature: 0.6
 tools:
   write: false
