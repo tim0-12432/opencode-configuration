@@ -12,15 +12,18 @@ The different agents and subagents should depict like an real software developme
 I'm using a GitHub Copilot subscription to get access to all the different models.
 But of course the provider and used models can be changed in the opencode configuration.
 
-- Main agent (@teamlead): mostly using Claude Sonnet 4.6; works as the team lead and instructor of the other subagents
-- Requirements engineer (@requirements): Gemini 3.1 Pro
-- Application architect (@architect): Claude Opus 4.6
-- Cloud Architect (@cloudengineer): Claude Opus 4.6
-- Software engineer (@coder): GPT 5.3 Codex
-- Implementation Reviewer (@reviewer): Gemini 3.1 Pro
-- Software Tester (@tester): GPT 5.4
-- Documenter (@documenter): GPT 5.3 Codex
-- Security Auditor (@auditor): GPT 5.4
+- Main Agent (@teamlead): mostly using Claude Sonnet 5; works as the team lead and instructor of the other subagents
+- Requirements Engineer (@requirements): Claude Opus 4.7
+- UX Designer (@uxdesigner): Claude Opus 4.7
+- Application Architect (@architect): Claude Opus 4.8
+- Cloud Architect (@cloudengineer): Claude Opus 4.7
+- Software Engineer (@coder): GPT 5.5
+- Implementation Reviewer (@reviewer): GPT 5.5
+- Super Reviewer (@superreview): GPT 5.4 mini
+  - Sub Reviewer (@subreviewer): Claude Haiku 4.5
+- Software Tester (@tester): GPT 5.5
+- Documenter (@documenter): GPT 5.5
+- Security Auditor (@auditor): GPT 5.5
 
 ## AI Role Workflows
 
