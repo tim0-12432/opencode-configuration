@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: github-copilot/gpt-5.5
+model: github-copilot/claude-sonnet-5
 variant: high
 temperature: 0.1
 tools:

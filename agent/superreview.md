@@ -1,7 +1,7 @@
 ---
 description: Spins up a whole review team and aggregates a review summary
 mode: subagent
-model: github-copilot/gpt-5.4-mini
+model: github-copilot/gpt-6-luna
 variant: high
 temperature: 0.1
 tools:

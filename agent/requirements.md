@@ -1,7 +1,7 @@
 ---
 description: Creates well-describing reqirements
 mode: subagent
-model: github-copilot/claude-opus-4.7
+model: github-copilot/claude-opus-5.5
 variant: high
 temperature: 0.6
 tools:

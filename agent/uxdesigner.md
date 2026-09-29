@@ -1,7 +1,7 @@
 ---
 description: Creates good looking and sophisticated user journeys through UI ideas
 mode: subagent
-model: github-copilot/claude-opus-4.7
+model: github-copilot/claude-sonnet-5
 variant: high
 temperature: 0.6
 tools:

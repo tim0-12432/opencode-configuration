@@ -39,7 +39,7 @@
         },
     },
     "model": "github-copilot/claude-sonnet-5",
-    "small_model": "github-copilot/gpt-5.4-mini",
+    "small_model": "github-copilot/gpt-6-luna",
     "agent": {
         // Explore agent is used to read folders and files, and generate summaries
         "explore": {
@@ -48,17 +48,17 @@
         },
         // This agent is used to compress a session if the context gets too filled
         "compaction": {
-            "model": "github-copilot/gpt-5.4-mini",
+            "model": "github-copilot/gpt-6-luna",
             "variant": "medium"
         },
         // Generates a title for the opencode session
         "title": {
-            "model": "github-copilot/gpt-5-mini",
+            "model": "github-copilot/gpt-6-luna",
             "variant": "low"
         },
         // Generates a summary for the opencode session
         "summary": {
-            "model": "github-copilot/gpt-5-mini",
+            "model": "github-copilot/gpt-6-luna",
             "variant": "high"
         }
     }

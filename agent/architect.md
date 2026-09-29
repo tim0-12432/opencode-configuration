@@ -1,7 +1,7 @@
 ---
 description: Plans application structure and workflow processes
 mode: subagent
-model: github-copilot/claude-opus-4.8
+model: github-copilot/claude-opus-5.5
 variant: high
 temperature: 0.2
 tools:

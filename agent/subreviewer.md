@@ -1,7 +1,7 @@
 ---
 description: Reviews the project in respect to a specific topic
 mode: subagent
-model: github-copilot/claude-haiku-4.5
+model: github-copilot/gpt-6-luna
 variant: high
 temperature: 0.1
 tools:
