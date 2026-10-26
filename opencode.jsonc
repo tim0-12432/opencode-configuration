@@ -1,65 +1,67 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "share": "disabled",
-    "disabled_providers": [
-        "openai",
-        "zen",
-        "opencode"
+    "policies": [
+        { "action": "provider.use", "resource": "openai", "effect": "deny" },
+        { "action": "provider.use", "resource": "zen", "effect": "deny" },
+        { "action": "provider.use", "resource": "opencode", "effect": "deny" }
     ],
-    "plugin": [
+    "plugins": [
         // Plugin adding a compress tool for the agent to call
-        //"@tarquinen/opencode-dcp@3.1.14",
-        // Plugin instructing the agent to talk like a caveman
-        //"caveman-opencode-plugin@0.1.5"
+        //"@tarquinen/opencode-dcp@3.2.0",
+        // Plugin instructing the agent to talk like a caveman (No v2 support yet!!)
+        //"caveman-opencode-plugin@0.1.5" !!
     ],
     "instructions": [],
     "mcp": {
-        // MCP Gateway is provided by docker desktop, you can add additional MCP servers there
-        "mcp-gateway": {
-            "type": "local",
-            "command": ["docker", "mcp", "gateway", "run"],
-            "enabled": true
-        },
-        // Playwright enables the agent to run a browser window
-        "playwright": {
-            "type": "local",
-            "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
-            "enabled": true
-        },
-        // Readonly github server for easy access to repositories (for writing the agent can use gh cli)
-        "github": {
-            "type": "local",
-            "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "-e", "GITHUB_READ_ONLY", "ghcr.io/github/github-mcp-server"],
-            "enabled": true,
-            "environment": {
-                "GITHUB_PERSONAL_ACCESS_TOKEN": "<github pat>",
-                "GITHUB_TOOLSETS": "default",
-                "GITHUB_READ_ONLY": "1"
-            }
+        "servers": {
+            // MCP Gateway is provided by docker desktop, you can add additional MCP servers there
+            "mcp-gateway": {
+                "type": "local",
+                "command": ["docker", "mcp", "gateway", "run"],
+                "disabled": false
+            },
+            // Playwright enables the agent to run a browser window
+            "playwright": {
+                "type": "local",
+                "command": ["npx", "@playwright/mcp@latest", "--isolated", "--browser=chrome"],
+                "disabled": false
+            },
+            // Readonly github server for easy access to repositories (for writing the agent can use gh cli)
+            "github": {
+                "type": "local",
+                "command": ["docker", "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "-e", "GITHUB_READ_ONLY", "ghcr.io/github/github-mcp-server"],
+                "disabled": false,
+                "environment": {
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "<github pat>",
+                    "GITHUB_TOOLSETS": "default",
+                    "GITHUB_READ_ONLY": "1"
+                }
+            },
         },
     },
     "model": "github-copilot/claude-sonnet-5",
-    "small_model": "github-copilot/gpt-6-luna",
-    "agent": {
+    "agents": {
         // Explore agent is used to read folders and files, and generate summaries
         "explore": {
-            "model": "github-copilot/claude-haiku-4.5",
-            "variant": "default"
+            "model": "github-copilot/claude-haiku-4.5"
         },
         // This agent is used to compress a session if the context gets too filled
         "compaction": {
-            "model": "github-copilot/gpt-6-luna",
-            "variant": "medium"
+            "model": "github-copilot/gpt-6-luna"
         },
         // Generates a title for the opencode session
         "title": {
-            "model": "github-copilot/gpt-6-luna",
-            "variant": "low"
+            "model": "github-copilot/gpt-6-luna#low"
         },
         // Generates a summary for the opencode session
         "summary": {
-            "model": "github-copilot/gpt-6-luna",
-            "variant": "high"
+            "model": "github-copilot/gpt-6-luna#high"
         }
+    },
+    "experimental": {
+        "todo": true,
+        // Allows the superreviewer agent to spawn own subagents
+        "subagent_depth": 3
     }
 }

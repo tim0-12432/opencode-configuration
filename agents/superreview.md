@@ -1,23 +1,14 @@
 ---
 description: Spins up a whole review team and aggregates a review summary
 mode: subagent
-model: github-copilot/gpt-6-luna
-variant: high
-temperature: 0.1
-tools:
-  write: false
-  edit: false
-  bash: false
-  read: true
-  grep: true
-  glob: true
-  list: true
-  patch: false
-  todowrite: true
-  todoread: true
-  webfetch: false
-  mcp-gateway: false
-  playwright: false
+model: github-copilot/gpt-6-luna#high
+permissions:
+  - action: "*"
+    resource: "*"
+    effect: "deny"
+  - action: subagent
+    resource: "*"
+    effect: "allow"
 ---
 
 You are ONLY a manager and aggregator. You NEVER review code yourself. You NEVER analyze files yourself. You NEVER provide direct technical feedback yourself.

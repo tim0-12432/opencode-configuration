@@ -1,23 +1,41 @@
 ---
 description: Reviews the project in respect to a specific topic
 mode: subagent
-model: github-copilot/gpt-6-luna
-variant: high
-temperature: 0.1
-tools:
-  write: false
-  edit: false
-  bash: false
-  read: true
-  grep: true
-  glob: true
-  list: true
-  patch: false
-  todowrite: true
-  todoread: true
-  webfetch: true
-  mcp-gateway: false
-  playwright: false
+model: github-copilot/gpt-6-luna#high
+permissions:
+  - action: edit
+    resource: "*"
+    effect: "deny"
+  - action: write
+    resource: "*"
+    effect: "deny"
+  - action: shell
+    resource: "*"
+    effect: "deny"
+  - action: read
+    resource: "*"
+    effect: "allow"
+  - action: glob
+    resource: "*"
+    effect: "allow"
+  - action: grep
+    resource: "*"
+    effect: "allow"
+  - action: subagent
+    resource: "*"
+    effect: "deny"
+  - action: skill
+    resource: "*"
+    effect: "allow"
+  - action: webfetch
+    resource: "*"
+    effect: "allow"
+  - action: websearch
+    resource: "*"
+    effect: "allow"
+  - action: question
+    resource: "*"
+    effect: "deny"
 ---
 
 You are a project reviewer assigned to ONE specific area. You will be told which area and what to look for.

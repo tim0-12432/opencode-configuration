@@ -1,23 +1,44 @@
 ---
 description: Delegates every task to his team of subagents
 mode: primary
-model: github-copilot/claude-sonnet-5
-variant: high
-temperature: 0.1
-tools:
-  write: false
-  edit: false
-  bash: false
-  read: true
-  grep: true
-  glob: true
-  list: true
-  patch: false
-  todowrite: true
-  todoread: true
-  webfetch: false
-  mcp-gateway: false
-  playwright: false
+model: github-copilot/claude-sonnet-5#high
+permissions:
+  - action: edit
+    resource: "*"
+    effect: "deny"
+  - action: write
+    resource: "*"
+    effect: "deny"
+  - action: shell
+    resource: "*"
+    effect: "deny"
+  - action: read
+    resource: "*"
+    effect: "deny"
+  - action: glob
+    resource: "*"
+    effect: "deny"
+  - action: grep
+    resource: "*"
+    effect: "deny"
+  - action: subagent
+    resource: "*"
+    effect: "allow"
+  - action: skill
+    resource: "*"
+    effect: "allow"
+  - action: webfetch
+    resource: "*"
+    effect: "deny"
+  - action: websearch
+    resource: "*"
+    effect: "deny"
+  - action: external_directory
+    resource: "*"
+    effect: "ask"
+  - action: question
+    resource: "*"
+    effect: "allow"
 ---
 
 You are the manager/lead of a software development team with multiple subagents.
