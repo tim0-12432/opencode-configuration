@@ -4,9 +4,7 @@
     "name": "system",
     "mode": "dark"
   },
-  "plugins": [
-    "opencode-traffic-light"
-  ],
+  "plugins": [],
   "diffs": {
     "wrap": "word"
   },
