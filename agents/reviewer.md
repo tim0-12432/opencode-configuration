@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: github-copilot/claude-sonnet-5#high
+model: github-copilot/claude-sonnet-5.5#high
 permissions:
   - action: edit
     resource: "*"

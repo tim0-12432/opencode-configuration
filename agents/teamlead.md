@@ -1,7 +1,7 @@
 ---
 description: Delegates every task to his team of subagents
 mode: primary
-model: github-copilot/claude-sonnet-5#high
+model: github-copilot/claude-sonnet-5.5#high
 permissions:
   - action: edit
     resource: "*"

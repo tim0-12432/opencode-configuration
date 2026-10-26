@@ -1,7 +1,7 @@
 ---
 description: Creates good looking and sophisticated user journeys through UI ideas
 mode: subagent
-model: github-copilot/claude-sonnet-5#high
+model: github-copilot/claude-sonnet-5.5#high
 permissions:
   - action: edit
     resource: "*"

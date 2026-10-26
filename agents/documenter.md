@@ -1,7 +1,7 @@
 ---
 description: Writes and maintains project documentation or can also just write something small into a file
 mode: subagent
-model: github-copilot/claude-sonnet-5
+model: github-copilot/claude-sonnet-5.5
 permissions:
   - action: edit
     resource: "*"

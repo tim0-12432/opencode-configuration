@@ -40,7 +40,7 @@
             },
         },
     },
-    "model": "github-copilot/claude-sonnet-5",
+    "model": "github-copilot/claude-sonnet-5.5",
     "agents": {
         // Explore agent is used to read folders and files, and generate summaries
         "explore": {
